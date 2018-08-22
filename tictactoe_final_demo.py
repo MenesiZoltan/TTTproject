@@ -1,13 +1,16 @@
 import os
 import time
 
+from writings.py import starting, made_by, thanking, restart_screen, writing_draw, player_x_winning, player_o_winning, congratulations
+from table_printing.py import table_example, print_table
+
 list_of_names = []
 tic_tac_toe_table = ["_", "_", "_", "_", "_", "_", "_", "_", "_"]
 list_of_player_inputs = []
 possible_player_inputs = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
 possible_player_inputs_for_restart = ["y", "n"]  
 x_or_o_variable = X
-
+variables = 2345
 
 def user_manual():
     print("\n\n\n\n\n\n\n")
@@ -47,24 +50,40 @@ def user_inputs():
     os.system("clear")
 
 
-def draw_game_restart_or_exit():
-    if len(player_input) == 9:
+def wining_conditions():
+    if tic_tac_toe_table[0] == tic_tac_toe_table[1] and tic_tac_toe_table[0] == tic_tac_toe_table[2] and not "_" or\
+    tic_tac_toe_table[3] == tic_tac_toe_table[4] and tic_tac_toe_table[3] == tic_tac_toe_table[5] and not "_" or\
+    tic_tac_toe_table[6] == tic_tac_toe_table[7] and tic_tac_toe_table[6] == tic_tac_toe_table[8] and not "_" or\
+    tic_tac_toe_table[0] == tic_tac_toe_table[5] and tic_tac_toe_table[0] == tic_tac_toe_table[8] and not "_" or\
+    tic_tac_toe_table[2] == tic_tac_toe_table[5] and tic_tac_toe_table[2] == tic_tac_toe_table[6] and not "_":
         return True
 
 
-def clear_game_for_restart():
-    player_input.clear()
-    global tic_tac_toe_table
-    tic_tac_toe_table = ["_", "_", "_", "_", "_", "_", "_", "_", "_"]
-    global x_or_o_variable
-    x_or_o_variable = "X"
+def player_input():
+    player_input = input("Please enter your number: ")
+    while player not in possible_player_inputs:
+        print("Invalid input!")
+        player_input()
+    list_of_player_inputs.append(player_input)
 
 
-def boot_game():
-    starting()
-    made_by()
-    user_manual()
-    user_inputs()
+def player_input_to_table():
+    tic_tac_toe_table.pop(int(player_input) - 1)
+    tic_tac_toe_table.insert(int(player_input) - 1, x_or_o_variable)
+
+
+def x_or_o_counter():
+    if len(list_of_player_inputs) %2 == 0 or len(player_input) == 0:
+        global x_or_o_variable
+        x_or_o_counter = "X"
+    if len(list_of_player_inputs) %2 != 0:
+        global x_or_o_variable
+        x_or_o_counter = "O"
+
+
+def draw_game_restart_or_exit():
+    if len(player_input) == 9:
+        return True
 
 
 def draw_check():
@@ -75,9 +94,9 @@ def draw_check():
         if draw_restart == "y":
             clear_game_for_restart() 
             print_table()
-            continue
         elif draw_restart == "n":
-            break    
+            break 
+
 
 def restart_game():
     print("\n\n\n\n\n\n\n\n\n")
@@ -93,44 +112,20 @@ def restart_game():
         break
 
 
-def player_input_to_table():
-    tic_tac_toe_table.pop(int(player_input) - 1)
-    tic_tac_toe_table.insert(int(player_input) - 1, x_or_o_variable)
+def clear_game_for_restart():
+    player_input.clear()
+    global tic_tac_toe_table
+    tic_tac_toe_table = ["_", "_", "_", "_", "_", "_", "_", "_", "_"]
+    global x_or_o_variable
+    x_or_o_variable = "X"
 
 
-def wining_conditions():
-    if tic_tac_toe_table[0] == tic_tac_toe_table[1] and tic_tac_toe_table[0] == tic_tac_toe_table[2] and not "_" or\
-    tic_tac_toe_table[3] == tic_tac_toe_table[4] and tic_tac_toe_table[3] == tic_tac_toe_table[5] and not "_" or\
-    tic_tac_toe_table[6] == tic_tac_toe_table[7] and tic_tac_toe_table[6] == tic_tac_toe_table[8] and not "_" or\
-    tic_tac_toe_table[0] == tic_tac_toe_table[5] and tic_tac_toe_table[0] == tic_tac_toe_table[8] and not "_" or\
-    tic_tac_toe_table[2] == tic_tac_toe_table[5] and tic_tac_toe_table[2] == tic_tac_toe_table[6] and not "_":
-        return True
-
-
-def draw_game_restart_or_exit():
-    if len(player_input) == 9:
-        return True
-
-
-def x_or_o_counter():
-    if len(list_of_player_inputs) %2 == 0 or len(player_input) == 0:
-        global x_or_o_counter
-        x_or_o_counter = "X"
-    if len(list_of_player_inputs) %2 != 0
-        global x_or_o_counter
-        x_or_o_counter = "O"
-
-
-def game():
-    while True:    
-        player_input = input("Please enter your number: ")
-        while player not in possible_player_inputs:
-            print("Invalid input!")
-            player_input = input("Please enter your number: ")
-        list_of_player_inputs.append(player_input)
+def game():  
+    for repetition in range(9): 
+        player_input()
         if draw_game_restart_or_exit == True:
             draw_check
-            break
+            break   
 
 
 def main():
