@@ -60,8 +60,11 @@ def wining_conditions():
 
 
 def player_input():
+    os.system("clear")
+    print_table()
     player_input = input("Please enter your number: ")
     while player not in possible_player_inputs:
+        os.system("clear")
         print("Invalid input!")
         player_input()
     list_of_player_inputs.append(player_input)
@@ -99,6 +102,8 @@ def draw_check():
 
 
 def restart_game():
+    os.system("clear")
+    restart_screen()
     print("\n\n\n\n\n\n\n\n\n")
     restart = input(" " * 67 + "y / n:")
     while restart not in possible_player_inputs_for_restart:
