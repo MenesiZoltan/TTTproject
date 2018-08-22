@@ -1,6 +1,5 @@
-import os
-import time
-
+from os_clear import os_clear_function
+from time_function import time_sleep
 from writings import starting, made_by, thanking, restart_screen, writing_draw, player_x_winning, player_o_winning, congratulations
 from table_printing import table_example, print_table
 
@@ -22,14 +21,14 @@ def user_manual():
     print(" " * 63 + "Don\'t cheat! ;)\n")
     print(" " * 58 + "Good luck and have fun! :)")
     print("-" * 142)
-    time.sleep(15)
-    os.system("clear")
+    time_sleep(15)
+    os_clear_function()
     print(" " * 54 + "This is how the game works.")
     print(" " * 48 + "The sectioning of the numbers look like this.")
     print("\n\n\n\n")
     table_example()
-    time.sleep(7)
-    os.system("clear")
+    time_sleep(7)
+    os_clear_function()
 
 
 def user_inputs():   
@@ -37,17 +36,17 @@ def user_inputs():
     print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n")
     starting_input_1 = str(input("Please, the first player enter his/her name: "))
     list_of_names.append(starting_input_1)
-    os.system("clear") 
+    os_clear_function() 
     print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n")
     starting_input_2 = str(input("Please, the second player enter his/her name: "))
     list_of_names.append(starting_input_2)
-    os.system("clear")
+    os_clear_function()
     print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n")   
     print(" " * 60 + "-" * len(list_of_names[0] + "-" * len(list_of_names[1] + "-" * 14)))
     print(" " * 60 + "{} = X and {} = O.".format(list_of_names[0], list_of_names[1]))
     print(" " * 60 + "-" * len(list_of_names[0] + "-" * len(list_of_names[1] + "-" * 14)))
-    time.sleep(4)
-    os.system("clear")
+    time_sleep(4)
+    os_clear_function()
 
 
 def wining_conditions():
@@ -60,11 +59,11 @@ def wining_conditions():
 
 
 def player_input():
-    os.system("clear")
+    os_clear_function()
     print_table()
     player_input = input("Please enter your number: ")
     while player not in possible_player_inputs:
-        os.system("clear")
+        os_clear_function()
         print("Invalid input!")
         player_input()
     list_of_player_inputs.append(player_input)
@@ -102,14 +101,14 @@ def draw_check():
 
 
 def restart_game():
-    os.system("clear")
+    os_clear_function()
     restart_screen()
     print("\n\n\n\n\n\n\n\n\n")
     restart = input(" " * 67 + "y / n:")
     while restart not in possible_player_inputs_for_restart:
         print("Invalid input. Please enter y or n (case sensitive).")
         restart = input("y / n: ")
-        os.system("clear")
+        os_clear_function()
         if  "y" in possible_player_inputs_for_restart:
             clear_game_for_restart()
             print_table()
@@ -138,6 +137,7 @@ def main():
     made_by()
     user_manual()
     user_inputs()
+    game()
     thanking()
 
 
