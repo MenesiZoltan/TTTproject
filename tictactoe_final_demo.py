@@ -10,7 +10,7 @@ list_of_player_inputs = []
 possible_player_inputs = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
 possible_player_inputs_for_restart = ["y", "n"]  
 x_or_o_variable = X
-variables = 2345
+
 
 def user_manual():
     print("\n\n\n\n\n\n\n")
@@ -87,15 +87,15 @@ def draw_game_restart_or_exit():
 
 
 def draw_check():
-        writing_draw()
+    writing_draw()
+    draw_restart = input("y / n: ")
+    while draw_restart not in possible_player_inputs_for_restart:
         draw_restart = input("y / n: ")
-        while draw_restart not in possible_player_inputs_for_restart:
-            draw_restart = input("y / n: ")
-        if draw_restart == "y":
-            clear_game_for_restart() 
-            print_table()
-        elif draw_restart == "n":
-            break 
+    if draw_restart == "y":
+        clear_game_for_restart() 
+        print_table()
+    elif draw_restart == "n":
+        break 
 
 
 def restart_game():
@@ -129,7 +129,11 @@ def game():
 
 
 def main():
-    pass
+    starting()
+    made_by()
+    user_manual()
+    user_inputs()
+    thanking()
 
 if __name__ == '__main__':
     main()
