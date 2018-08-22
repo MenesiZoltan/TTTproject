@@ -1,15 +1,15 @@
 import os
 import time
 
-from writings.py import starting, made_by, thanking, restart_screen, writing_draw, player_x_winning, player_o_winning, congratulations
-from table_printing.py import table_example, print_table
+from writings import starting, made_by, thanking, restart_screen, writing_draw, player_x_winning, player_o_winning, congratulations
+from table_printing import table_example, print_table
 
 list_of_names = []
 tic_tac_toe_table = ["_", "_", "_", "_", "_", "_", "_", "_", "_"]
 list_of_player_inputs = []
 possible_player_inputs = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
 possible_player_inputs_for_restart = ["y", "n"]  
-x_or_o_variable = X
+x_or_o_variable = "X"
 
 
 def user_manual():
@@ -94,11 +94,11 @@ def draw_check():
     draw_restart = input("y / n: ")
     while draw_restart not in possible_player_inputs_for_restart:
         draw_restart = input("y / n: ")
-    if draw_restart == "y":
-        clear_game_for_restart() 
-        print_table()
-    elif draw_restart == "n":
-        break 
+        if draw_restart == "y":
+            clear_game_for_restart() 
+            print_table()
+        elif draw_restart == "n":
+            break 
 
 
 def restart_game():
@@ -109,12 +109,12 @@ def restart_game():
     while restart not in possible_player_inputs_for_restart:
         print("Invalid input. Please enter y or n (case sensitive).")
         restart = input("y / n: ")
-    os.system("clear")
-    if  "y" in possible_player_inputs_for_restart:
-        clear_game_for_restart()
-        print_table()
-    elif "n" in possible_player_inputs_for_restart:
-        break
+        os.system("clear")
+        if  "y" in possible_player_inputs_for_restart:
+            clear_game_for_restart()
+            print_table()
+        elif "n" in possible_player_inputs_for_restart:
+            break
 
 
 def clear_game_for_restart():
@@ -130,7 +130,7 @@ def game():
         player_input()
         if draw_game_restart_or_exit == True:
             draw_check
-            break   
+            break
 
 
 def main():
@@ -139,6 +139,7 @@ def main():
     user_manual()
     user_inputs()
     thanking()
+
 
 if __name__ == '__main__':
     main()
