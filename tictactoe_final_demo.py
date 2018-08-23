@@ -4,6 +4,7 @@ from writings import starting, made_by, thanking, restart_screen, writing_draw, 
 from table_printing import table_example, print_table
 from variables import tic_tac_toe_table, list_of_player_inputs, possible_player_inputs, possible_player_inputs_for_restart, x_or_o_variable
 
+#Test
 
 def user_manual():
     print("\n\n\n\n\n\n\n")
