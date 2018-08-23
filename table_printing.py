@@ -1,3 +1,5 @@
+from variables import tic_tac_toe_table
+
 def table_example():
     print(" " * 58 +"\u250F"+"\u2501"+"\u2501"+"\u2501"+"\u2501"+"\u2501"+"\u2501"+"\u2501"+"\u2533"
       +"\u2501"+"\u2501"+"\u2501"+"\u2501"+"\u2501"+"\u2501"+"\u2501"+"\u2533"
