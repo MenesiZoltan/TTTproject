@@ -1,5 +1,9 @@
+from os_clear import os_clear_function
+from time_function import time_sleep
+
+
 def starting():
-    os.system("clear")
+    os_clear_function()
     print("\n\n\n\n\n\n\n\n\n\n\n\n")
     print(" " * 33 + " -----------------------------------------------------------------------------")
     print(" " * 33 + " #######                 #######                      #######" )                
@@ -10,8 +14,8 @@ def starting():
     print(" " * 33 + "    #     #  #    #         #     #    #  #    #         #     #    #  #     ") 
     print(" " * 33 + "    #     #   ####          #     #    #   ####          #      ####   ######")
     print(" " * 33 + " -----------------------------------------------------------------------------\n")
-    time.sleep(3)
-    os.system("clear")
+    time_sleep(3)
+    os_clear_function()
 
 
 def made_by():
@@ -24,8 +28,8 @@ def made_by():
     print(" " * 11 + "|_|  |_|  \__,_|  \__,_|  \___|   |_.__/   \__, | (_)   /_____|  \___/  |_| |_|    \___/\/   |_|  |_|  \__,_|  \__|  \___|")
     print(" " * 11 + "                                            __/ |                                                                         ")
     print(" " * 11 + "                                           |___/                                                                          ")                                                              
-    time.sleep(3)
-    os.system("clear")
+    time_sleep(3)
+    os_clear_function()
 
 
 def thanking():
@@ -35,8 +39,8 @@ def thanking():
     print(" " * 5 + "  | |   | ' \  / _` | | ' \  | / /   | || | / _ \ | || |   |  _| / _ \ | '_|   | '_ \ | | / _` | | || | | | | ' \  / _` | |_|    _   | |")
     print(" " * 5 + "  |_|   |_||_| \__,_| |_||_| |_\_\    \_, | \___/  \_,_|   |_|   \___/ |_|     | .__/ |_| \__,_|  \_, | |_| |_||_| \__, | (_)   (_)  | |")
     print(" " * 5 + "                                      |__/                                     |_|                |__/             |___/            /_/ ")
-    time.sleep(4)
-    os.system("clear")
+    time_sleep(4)
+    os_clear_function()
 
 
 def restart_screen():
@@ -64,7 +68,7 @@ def restart_screen():
     print(" " * 25 + "| ,__/'( '__) /'__`\/',__)/',__)           /' _ `\           | || ,__)    /' _ `\ /'_`\          ")
     print(" " * 25 + "| |    | |   (  ___/\__, \\__, \            | ( ) |           | || |       | ( ) |( (_) ) _          ")
     print(" " * 25 + "(_)    (_)   `\____)(____/(____/           (_) (_)           (_)(_)       (_) (_)`\___/'(_)      ")
-    time.sleep(2)
+    time_sleep(2)
 
 
 
@@ -79,8 +83,8 @@ def writing_draw():
     print("  |==|- |        |==|, |            /==/\/ _ |        /==/-  /\ - \        |==|  '='   / |==|_  . ,'.  /==/-  /\ - \   \  ,  - /==/   .=.     ")
     print("  /==/. /        /==/ -/            \==\ - , /        \==\ _.\=\.-'        |==|-,   _`/  /==/  /\ ,  ) \==\ _.\=\.-'   |-  /\ /==/   :=; :    ")
     print("  `--`-`         `--`--`             `--`---'          `--`                `-.`.____.'   `--`-`--`--'   `--`           `--`  `--`     `=`     ")
-    time.sleep(3)
-    os.system("clear")
+    time_sleep(3)
+    os_clear_function()
 
 
 def player_x_winning():
@@ -91,8 +95,8 @@ def player_x_winning():
     print(" " * 40 + "   > <     | '_ \   / _` | / __|   \ \ /\ / / | | | '_ \  | |")
     print(" " * 40 + "  / . \    | | | | | (_| | \__ \    \ V  V /  | | | | | | |_|")
     print(" " * 40 + " /_/ \_\   |_| |_|  \__,_| |___/     \_/\_/   |_| |_| |_| (_)")
-    time.sleep(3)
-    os.system("clear")
+    time_sleep(3)
+    os_clear_function()
 
 
 def player_o_winning():
@@ -103,8 +107,8 @@ def player_o_winning():
     print(" " * 40 + "| |  | |   | '_ \   / _` | / __|   \ \ /\ / / | | | '_ \  | |")
     print(" " * 40 + "| |__| |   | | | | | (_| | \__ \    \ V  V /  | | | | | | |_|")
     print(" " * 40 + " \____/    |_| |_|  \__,_| |___/     \_/\_/   |_| |_| |_| (_)")    
-    time.sleep(3)
-    os.system("clear")        
+    time_sleep(3)
+    os_clear_function()        
 
 
 def congratulations():
@@ -115,8 +119,5 @@ def congratulations():
     print(" " * 27 + "/ /___ | (_) || | | || (_| || |   | (_| || |_ | |_| || || (_| || |_ | || (_) || | | |\__ \  /\_/ ")
     print(" " * 27 + "\____/  \___/ |_| |_| \__, ||_|    \__,_| \__| \__,_||_| \__,_| \__||_| \___/ |_| |_||___/  \/   ")
     print(" " * 27 + "                      |___/                                                                    ")
-    time.sleep(3)
-    os.system("clear")
-
-    
-        
+    time_sleep(3)
+    os_clear_function()   
