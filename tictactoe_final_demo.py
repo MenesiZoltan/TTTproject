@@ -64,14 +64,19 @@ def player_input_function():
     while player_input not in possible_player_inputs:
         os_clear_function()
         print("Invalid input!")
-        player_input = input("Please enter your number: ")
-    list_of_player_inputs.append(player_input)
-    tic_tac_toe_table.pop(int(player_input) - 1)
-    tic_tac_toe_table.insert(int(player_input) - 1, x_or_o_variable)
-
+        player_input = input("Please enter your number: ") 
+    try:
+        tic_tac_toe_table.pop(int(player_input) - 1)
+        tic_tac_toe_table.insert(int(player_input) - 1, x_or_o_variable)
+        list_of_player_inputs.append(player_input)
+    except ValueError:
+        print("Invalid input!")     
+   
 
 def draw_game_restart_or_exit():
     if len(list_of_player_inputs) == 9:
+        time_sleep(2)
+        os_clear_function()
         return True
 
 
@@ -96,10 +101,13 @@ def restart_game():
         print("Invalid input. Please enter y or n (case sensitive).")
         restart = input("y / n: ")
         os_clear_function()
-        if  "y" in possible_player_inputs_for_restart:
+        if "y" in possible_player_inputs_for_restart:
             clear_game_for_restart()
             print_table()
+            game()
         elif "n" in possible_player_inputs_for_restart:
+            thanking()
+            time_sleep(3)
             break
 
 
@@ -113,6 +121,7 @@ def game():
     for repetition in range(9): 
         player_input_function()
         if draw_game_restart_or_exit() == True:
+            time_sleep(2)
             draw_check()
             break
 
