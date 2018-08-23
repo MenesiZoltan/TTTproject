@@ -2,7 +2,8 @@ from os_clear import os_clear_function
 from time_function import time_sleep
 from writings import starting, made_by, thanking, restart_screen, writing_draw, player_x_winning, player_o_winning, congratulations
 from table_printing import table_example, print_table
-from variables import tic_tac_toe_table, list_of_player_inputs, possible_player_inputs, possible_player_inputs_for_restart, x_or_o_variable
+from variables import tic_tac_toe_table, list_of_player_inputs, possible_player_inputs, possible_player_inputs_for_restart
+
 
 def user_manual():
     print("\n\n\n\n\n\n\n")
@@ -51,33 +52,26 @@ def wining_conditions():
         return True
 
 
-def player_input():
+def player_input_function():
+    x_or_o_variable = None
+    if len(list_of_player_inputs) % 2 == 0:
+        x_or_o_variable = "X"
+    elif len(list_of_player_inputs) % 2 != 0:
+        x_or_o_variable = "O"
     os_clear_function()
     print_table()
     player_input = input("Please enter your number: ")
-    while player not in possible_player_inputs:
+    while player_input not in possible_player_inputs:
         os_clear_function()
         print("Invalid input!")
         player_input = input("Please enter your number: ")
     list_of_player_inputs.append(player_input)
-
-
-def player_input_to_table():
     tic_tac_toe_table.pop(int(player_input) - 1)
     tic_tac_toe_table.insert(int(player_input) - 1, x_or_o_variable)
 
 
-def x_or_o_counter():
-    if len(list_of_player_inputs) %2 == 0 or len(player_input) == 0:
-        global x_or_o_variable
-        x_or_o_counter = "X"
-    if len(list_of_player_inputs) %2 != 0:
-        global x_or_o_variable
-        x_or_o_counter = "O"
-
-
 def draw_game_restart_or_exit():
-    if len(player_input) == 9:
+    if len(list_of_player_inputs) == 9:
         return True
 
 
@@ -110,28 +104,26 @@ def restart_game():
 
 
 def clear_game_for_restart():
-    player_input.clear()
+    list_of_player_inputs.clear()
     global tic_tac_toe_table
     tic_tac_toe_table = ["_", "_", "_", "_", "_", "_", "_", "_", "_"]
-    global x_or_o_variable
-    x_or_o_variable = "X"
 
 
 def game():  
-    for repetition in range(9): 
-        player_input()
+    for repetition in range(10): 
+        player_input_function()
         if draw_game_restart_or_exit == True:
             draw_check
             break
 
 
 def main():
-    starting()
-    made_by()
-    user_manual()
+    #starting()
+    #made_by()
+    #user_manual()
     user_inputs()
     game()
-    thanking()
+    #thanking()
 
 
 if __name__ == '__main__':
