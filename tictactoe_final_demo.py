@@ -2,13 +2,7 @@ from os_clear import os_clear_function
 from time_function import time_sleep
 from writings import starting, made_by, thanking, restart_screen, writing_draw, player_x_winning, player_o_winning, congratulations
 from table_printing import table_example, print_table
-
-list_of_names = []
-tic_tac_toe_table = ["_", "_", "_", "_", "_", "_", "_", "_", "_"]
-list_of_player_inputs = []
-possible_player_inputs = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
-possible_player_inputs_for_restart = ["y", "n"]  
-x_or_o_variable = "X"
+from variables import tic_tac_toe_table, list_of_player_inputs, possible_player_inputs, possible_player_inputs_for_restart, x_or_o_variable
 
 
 def user_manual():
@@ -32,7 +26,7 @@ def user_manual():
 
 
 def user_inputs():   
-    global list_of_names
+    list_of_names = []
     print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n")
     starting_input_1 = str(input("Please, the first player enter his/her name: "))
     list_of_names.append(starting_input_1)
@@ -65,7 +59,7 @@ def player_input():
     while player not in possible_player_inputs:
         os_clear_function()
         print("Invalid input!")
-        player_input()
+        player_input = input("Please enter your number: ")
     list_of_player_inputs.append(player_input)
 
 
