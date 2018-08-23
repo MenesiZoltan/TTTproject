@@ -110,10 +110,10 @@ def clear_game_for_restart():
 
 
 def game():  
-    for repetition in range(10): 
+    for repetition in range(9): 
         player_input_function()
-        if draw_game_restart_or_exit == True:
-            draw_check
+        if draw_game_restart_or_exit() == True:
+            draw_check()
             break
 
 
